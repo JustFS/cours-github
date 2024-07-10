@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
+@font-face {
+  font-family: "DMSerif";
+  src: url(./assets/fonts/DMSerifDisplay-Regular.ttf);
+}
+
+/* L'étoile donne du style à TOUS les éléments */
+/* * {
+  margin: 0;
+  padding: 0;
+  border: 2px solid red;
+} */
+
+body {
+  font-family: "DMSerif", Verdana;
+  background: url(./assets/img/bg.jpg) center/cover;
+  /* VH = 100% de la taille de l'écran (viewport height) */
+  /* min-height: 100vh; */
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  /* Les tailles de polices doivent être en REM */
+  font-size: 2.5rem;
+  text-shadow: 3px 3px 8px #00000042;
+  color: #ab0ef4;
+  font-family: "Oswald", sans-serif;
+}
+
+main {
+  min-height: 500px;
+  width: 90%;
+  background: rgba(245, 245, 245, 0.9);
+  /* Centrer une boite */
+  margin: 0 auto;
+  border: 2px solid rgb(0, 140, 255);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0px 0px 20px 4px #81cfc6;
+  padding: 15px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.flexbox,
+.grid,
+.absolute {
+  border: 2px solid skyblue;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  min-height: 150px;
+}
+
+/* FLEXBOX */
+/* Sert a répartir équitablement des éléments sur la page */
+.flexbox ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flexbox li {
+  list-style: none;
+  height: 160px;
+  width: 160px;
+  margin: 10px;
+  background: turquoise;
+  /* Centrer un unique élément veticalement et horizontalement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.grid img {
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "i1 i2"
+    "ta ta"
+    "vi bt";
+}
+
+input,
+textarea {
+  margin: 5px;
+  border: 1px solid darkblue;
+  padding: 10px;
+  font-size: 1.1rem;
+  font-family: "DMSerif";
+  border-radius: 5px;
+}
+
+textarea {
+  grid-area: ta;
+  height: 40px;
+  resize: none;
+}
+
+#btn-submit {
+  grid-area: bt;
+  cursor: pointer;
+  background: cyan;
+  transition: 0.2s;
+}
+
+#btn-submit:hover {
+  background: darkblue;
+  color: white;
+}
+
+/* ABSOLUTE  */
+/* Sans élément en Relative, de base, l'élément en absolute l'est par rapport au Body  */
+/* Il faut mettre une position relative au parent pour contraindre l'élément en absolute dans ses frontières  */
+.absolute {
+  position: relative;
+}
+
+#circle1 {
+  height: 80px;
+  width: 80px;
+  background: skyblue;
+  position: absolute;
+  border-radius: 150px;
+  top: -20px;
+  right: -20px;
+}
+
+#circle2 {
+  height: 40px;
+  width: 40px;
+  border-radius: 150px;
+  background: teal;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+}
+
+/* RESPONSIVE  */
+@media screen and (max-width: 900px) {
+  .grid-container {
+    display: block;
+  }
+  .grid-container img {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .flexbox ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "i1"
+      "i2"
+      "ta"
+      "bt";
+  }
+  input,
+  textarea {
+    font-size: 0.8rem;
+  }
+}
