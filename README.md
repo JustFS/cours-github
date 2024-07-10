@@ -1,3 +1,3 @@
 #superTeam  projet
-collaboratif(forking ?)
-ajouer un fichier: `gitignore`
+##collaboratif(forking ?)
+A faire: ajouer un fichier `gitignore`
