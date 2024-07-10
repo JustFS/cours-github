@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Libre+Baskerville:ital@1&family=Oswald:wght@200..700&display=swap');
+@font-face {
+    font-family:"DMSerif";
+    src: url(./assets/fonts/DMSerifDisplay-Regular.ttf);
+}
+/* *{
+    margin: 0;
+    padding: 0;
+    border: 2px solid red;
+
+} */
+
+
+body{
+    font-family: "DMSerif", Verdana;
+    background: url(./assets/img/imgBckg.jpg) center;
+    min-height: 100vh;
+    min-width: 100vh;
+
+}
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    /* la taille des police doivent etre en rem 2rem la taille normale d'un h1*/
+    font-size: 10vw;
+    text-shadow: 2px 1px 4px #4451965c;
+    color: #ffffff;
+    font-family: "Oswald", sans-serif;
+
+}
+main{
+   min-height: 500px;
+    width: 90%;
+    background: #8fa3ba9c;
+    /* pour centrer une boite */
+   margin: 0 auto;
+   border: 2px solid rgb(23, 23, 206);
+   border-radius: 20px 20px 0 0;
+   box-shadow: rgb(74 115 218) 4px 0px 20px 3px;
+   padding: 15px;
+    
+     
+}
+h2{
+    margin: 0;
+}
+.flexbox,
+.grid,
+.absolute{
+    border: 2px solid rgb(74 115 218);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    min-height: 150px;
+}
+.flexbox ul{
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.flexbox li{
+    list-style: none;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    background: plum ;
+    /* centrer un element verticalement ou horizontalement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* GRID */
+.grid-container{
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+}
+
+.grid img{
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+
+}
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "i1 i2"
+    "ta ta"
+    "vi bt";
+
+}
+input, textarea{
+    margin: 5px;
+    border: 1px solid darkblue;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: "DMserif";
+    border-radius: 5px;
+}
+textarea{
+   grid-area: ta; 
+   height: 40px;
+}
+#btn-submit{
+    grid-area: bt;
+    cursor: pointer;
+    background:rgb(248, 107, 187);
+    transition: 0.2s;
+  
+
+}
+#btn-submit:hover{
+    background: salmon;
+    color: #ffffff;
+
+}
+/* ABSOLUTE */
+/*
+Sans element en Relative, de base, l'element en absolute l'est par rapport au body*/
+
+/* il faut mettre une position relative au parent pour contraintre l'element en obsolute dans ses frontieres. */
+.absolute{
+    position: relative;
+}
+#circle1{
+    height: 80px;
+    width: 80px;
+    background: skyblue;
+    position: absolute;
+    border-radius: 150px;
+    top: -20px;
+    right: -20px;
+
+}
+#circle2{
+    height: 40px;
+    width: 40px;
+    border-radius: 150px;
+    background: teal;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+/* RESPONSIVE */
+@media screen and (max-width:900px){
+   .grid-container{
+    display: block;
+   }
+   .grid-container img{
+    width: 40%;
+   }
+}
+@media screen and (max-width:610px){
+    .flexbox ul{
+        flex-direction: column;
+        align-items: center;
+
+    }
+    form{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "i1"
+        "i2"
+        "ta"
+        "bt";
+
+    }
+    input,
+     textarea{
+        font-family: 0.8rem;
+
+    }
+
+}
